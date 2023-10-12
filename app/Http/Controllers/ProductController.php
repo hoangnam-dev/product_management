@@ -16,7 +16,7 @@ class ProductController extends Controller
     }
     public function list()
     {
-        $products = Product::paginate(2);
+        // $products = Product::paginate(2);
        
         return $products->toArray();
         
@@ -36,7 +36,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
