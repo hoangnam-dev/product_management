@@ -12,9 +12,15 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all()->toArray();
-
         return view('products.index');
+    }
+    public function list()
+    {
+        $products = Product::paginate(2);
+       
+        return $products->toArray();
+        
+        // return view('products.index');
     }
 
     /**
