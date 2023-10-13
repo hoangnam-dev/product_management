@@ -45,9 +45,9 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
 
         $result = false;
-        // if($product->save()) {
-        //     $result = true;
-        // }
+        if($product->save()) {
+            $result = true;
+        }
 
         return $result;
     }
