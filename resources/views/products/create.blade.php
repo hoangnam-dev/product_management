@@ -83,8 +83,9 @@
                     product_price: $('#product_price').val(),
                     category_id: $('#category_id').find(":selected").val(),
                 };
-                // console.log(formData);
+
                 var notify = '';
+                
                 var productFormValid = $("#productForm").valid();
                 if (productFormValid) {
                     $('#saveData').val('Đang thêm...')
@@ -94,8 +95,6 @@
                         type: "POST",
                         dataType: 'json',
                         success: function(data) {
-                            console.log('ajx');
-
                             // reset form data
                             $('#product_code').val('');
                             $('#product_name').val('');
@@ -108,15 +107,20 @@
                             });
 
                             // Show result notify
-                            notify =
-                                '<div class="alert alert-success" role="alert">Thêm sản phẩm thành công!</div>';
+                            let rs = 'success';
+                            let msg = 'Thêm sản phẩm thành công!';
+                            if(data != true) {
+                                rs = 'danger';
+                                msg = 'Thêm sản phẩm không thành công!';
+                            }
+
+                            notify = '<div class="alert alert-' + rs + '" role="alert">' + msg + '</div>';
                             $('#notify').html(notify)
                         },
-                        error: function(data) {
-                            console.log('Error:', data);
+                        error: function(error) {
+                            console.log('Error:', error);
                             // Show result notify
-                            notify =
-                                '<div class="alert alert-danger" role="alert">Thêm sản phẩm không thành công!</div>';
+                            notify = '<div class="alert alert-danger" role="alert">' + error.responseJSON.message + '</div>';
                             $('#notify').html(notify)
                         }
                     });
@@ -157,9 +161,6 @@
                     }
                 });
             }
-            
-
-
         });
     </script>
 @endsection

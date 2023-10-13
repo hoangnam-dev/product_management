@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -34,9 +35,21 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        return $request;
+        $product = new Product();
+        $product->product_code = $request->product_code;
+        $product->product_name = $request->product_name;
+        $product->product_unit = $request->product_unit;
+        $product->product_price = $request->product_price;
+        $product->category_id = $request->category_id;
+
+        $result = false;
+        // if($product->save()) {
+        //     $result = true;
+        // }
+
+        return $result;
     }
 
     /**
