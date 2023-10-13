@@ -17,6 +17,7 @@ class CategoryController extends Controller
 
     public function list()
     {
+        // return list category
         $categories = Category::all()->toArray();
         return $categories;
     }

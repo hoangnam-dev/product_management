@@ -15,6 +15,7 @@ class Category extends Model
     ];
     protected $table = 'tbl_category';
 
+    // Relationship with product table
     public function hasProduct(): HasMany
     {
         return $this->hasMany(Product::class, 'category_id');
