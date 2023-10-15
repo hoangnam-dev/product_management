@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,6 @@ Route::get('/create', [ProductController::class, 'create'])->name('product.creat
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
