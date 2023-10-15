@@ -49,12 +49,8 @@
                 </table>
                 <nav aria-label="...">
                     <ul class="pagination">
-                        {{-- <li class="page-item paginationPrev"><span class="page-link">Previous</span></li>
-
-                        <li class="page-item paginationNext"><span class="page-link">Next</span></li> --}}
                     </ul>
                 </nav>
-                {{-- @include('products.productPagination') --}}
             </div>
         </div>
     </div>
