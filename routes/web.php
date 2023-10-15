@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Auth::routes();
 
 Route::get('/', [ProductController::class, 'index'])->name('product');
 Route::get('/create', [ProductController::class, 'create'])->name('product.create');
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
