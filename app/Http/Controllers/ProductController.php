@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use App\Http\Requests\StoreProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
@@ -15,13 +16,19 @@ class ProductController extends Controller
     {
         return view('products.index');
     }
-    public function list()
+    public function list(Request $request)
     {
-        $products = Product::paginate(2);
-       
+        $pagination = 10;
+        $category = $request->category;
+
+        if(isset($category) && is_numeric($category)) {
+            $products = Product::join('tbl_category', 'tbl_product.category_id', '=', 'tbl_category.category_id')
+                                ->where('tbl_category.category_id', '=', $category)
+                                ->paginate($pagination);
+        } else {
+            $products = Product::join('tbl_category', 'tbl_product.category_id', '=', 'tbl_category.category_id')->paginate($pagination);
+        }    
         return $products->toArray();
-        
-        // return view('products.index');
     }
 
     /**

@@ -1,7 +1,7 @@
 <div class="header">
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-danger">
         <div class="container">
-            <a class="navbar-brand text-black" href="#">
+            <a class="navbar-brand text-black" href="{{ route('product') }}">
                 <h2 class="text-light text-uppercase">
                     Quản lý sản phẩm
                 </h2>
@@ -10,8 +10,8 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+                {{-- <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
                     <li class="nav-item">
                         <a class="nav-link text-light" href="#">Nhóm sản phẩm</a>
                     </li>
@@ -24,7 +24,8 @@
                     <button class="btn btn-outline-light text-light" type="submit">
                         Search
                     </button>
-                </form>
+                </form> --}}
+                <span class="text-light">Admin</span>
             </div>
         </div>
     </nav>

@@ -22,7 +22,7 @@ class StoreProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'product_code' => 'required|min:8|max:8|alpha_num',
+            'product_code' => 'required|min:4|max:4|alpha_num',
             'product_name' => 'required',
             'product_price' => 'required',
         ];
@@ -37,8 +37,8 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'product_code.required' => 'Mã số sản phẩm không được trống',
-            'product_code.min' => 'Mã số sản phẩm phải là 8 ký tự',
-            'product_code.max' => 'Mã số sản phẩm phải là 8 ký tự',
+            'product_code.min' => 'Mã số sản phẩm phải là 4 ký tự',
+            'product_code.max' => 'Mã số sản phẩm phải là 4 ký tự',
             'product_code.alpha_num' => 'Mã số sản phẩm không chứa ký tự đặc biệt',
             'product_name.required' => 'Tên sản phẩm không được trống',
             'product_price.required' => 'Giá sản phẩm không được trống',

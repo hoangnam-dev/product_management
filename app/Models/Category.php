@@ -13,11 +13,12 @@ class Category extends Model
     protected $fillable = [
         'category_code','category_name'
     ];
+    protected $primaryKey = 'category_id';
     protected $table = 'tbl_category';
 
     // Relationship with product table
     public function hasProduct(): HasMany
     {
-        return $this->hasMany(Product::class, 'category_id');
+        return $this->hasMany(Product::class, 'category_id', 'category_id');
     }
 }

@@ -11,8 +11,7 @@
             <div class="create-form">
                 <form id="productForm" name="productForm" class="form-horizontal">
                     <div class="mb-3">
-                        <label for="product_code" class="form-label">Mã số (Là một chuỗi có 8 ký tự bao gồm chữ hoa, chữ thường, 
-                            chữ số và không chứa ký tự đặc biệt)</label>
+                        <label for="product_code" class="form-label">Mã số (Là một chuỗi 4 ký tự, không chứa ký tự đặc biệt)</label>
                         <input type="text" class="form-control" name="product_code" id="product_code"
                             placeholder="Nhập mã số..." required>
                     </div>
@@ -60,7 +59,7 @@
                         var content = '';
 
                         for (let i = 0; i < categories.length; i++) {
-                            content += '<option value="' + categories[i].id + '">' + categories[i]
+                            content += '<option value="' + categories[i].category_id + '">' + categories[i]
                                 .category_name + '</option>';
                         }
                         $('#category_id').html(content);
@@ -130,8 +129,8 @@
             // Validation form data
             function validationFormData() {
                 $.validator.addMethod("validateCode", function(value, element) {
-                    return this.optional(element) || /^([a-zA-Z0-9]{8})$/i.test(value);
-                }, "Hãy nhập mã số có 8 ký tự bao gồm chữ hoa, chữ thường, chữ số và không chứa ký tự đặc biệt");
+                    return this.optional(element) || /^([a-zA-Z0-9]{4})$/i.test(value);
+                }, "Hãy nhập mã số có 4 ký tự và không chứa ký tự đặc biệt");
                 $("#productForm").validate({
                     onfocusout: false,
                     onkeyup: false,
