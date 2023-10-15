@@ -25,6 +25,7 @@ class StoreProductRequest extends FormRequest
             'product_code' => 'required|min:4|max:4|alpha_num',
             'product_name' => 'required',
             'product_price' => 'required',
+            'product_unit' => 'required',
         ];
     }
 
@@ -42,6 +43,7 @@ class StoreProductRequest extends FormRequest
             'product_code.alpha_num' => 'Mã số sản phẩm không chứa ký tự đặc biệt',
             'product_name.required' => 'Tên sản phẩm không được trống',
             'product_price.required' => 'Giá sản phẩm không được trống',
+            'product_unit.required' => 'Đơn vị tính không được trống',
         ];
     }
 }

@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::prefix('/product')->group(function () {
     Route::get('/list', [ProductController::class, 'list'])->name('product.list');
-    Route::middleware('auth')->post('/store', [ProductController::class, 'store'])->name('product.store');
+    Route::post('/store', [ProductController::class, 'store'])->name('product.store');
 });
 Route::prefix('/category')->group(function () {
     Route::get('/list', [CategoryController::class, 'list'])->name('category.list');

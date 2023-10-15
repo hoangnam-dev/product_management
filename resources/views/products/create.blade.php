@@ -22,9 +22,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="product_unit" class="form-label">Đơn vị tính</label>
-                        <select id="product_unit" class="form-select">
-                            <option>Cái</option>
-                        </select>
+                        <input type="text" class="form-control" name="product_unit" id="product_unit"
+                            placeholder="Nhập đơn vị tính..." required>
                     </div>
                     <div class="mb-3">
                         <label for="product_price" class="form-label">Giá sản phẩm</label>
@@ -78,8 +77,8 @@
                 var formData = {
                     product_code: $('#product_code').val(),
                     product_name: $('#product_name').val(),
-                    product_unit: $('#product_unit').find(":selected").val(),
                     product_price: $('#product_price').val(),
+                    product_unit: $('#product_unit').val(),
                     category_id: $('#category_id').find(":selected").val(),
                 };
 
@@ -98,9 +97,7 @@
                             $('#product_code').val('');
                             $('#product_name').val('');
                             $('#product_price').val('');
-                            $("#product_unit option").prop("selected", function() {
-                                return this.defaultSelected;
-                            });
+                            $("#product_unit").val('');
                             $("#category_id option").prop("selected", function() {
                                 return this.defaultSelected;
                             });
@@ -119,7 +116,7 @@
                         error: function(error) {
                             console.log('Error:', error);
                             // Show result notify
-                            notify = '<div class="alert alert-danger" role="alert">' + error.responseJSON.message + '</div>';
+                            notify = '<div class="alert alert-danger" role="alert">Có lỗi xảy ra!</div>';
                             $('#notify').html(notify)
                         }
                     });
@@ -146,6 +143,9 @@
                         product_price: {
                             required: true
                         },
+                        product_unit: {
+                            required: true
+                        },
                     },
                     messages: {
                         product_code: {
@@ -156,6 +156,9 @@
                         },
                         product_price: {
                             required: "Hãy nhập giá sản phẩm"
+                        },
+                        product_unit: {
+                            required: "Hãy nhập đơn vị tính sản phẩm"
                         },
                     }
                 });
